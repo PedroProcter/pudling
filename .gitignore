@@ -9,7 +9,7 @@
 Icon
 
 # NPM Modules
-node_module/
+node_modules/
 
 # Thumbnails
 ._*
