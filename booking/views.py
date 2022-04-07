@@ -13,6 +13,11 @@ def booking(request):
     food_brands = get_all_food_brands()
     return render(request, 'booking.html', {'rooms':rooms, 'food_brands':food_brands})
 
+def reservations(request):
+    rooms = get_all_rooms()
+    food_brands = get_all_food_brands()
+    return render(request, 'reservation.html', {'rooms':rooms, 'food_brands':food_brands})
+
 def rooms(request):
     return render(request, 'rooms.html')
 
