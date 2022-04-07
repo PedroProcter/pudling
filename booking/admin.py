@@ -5,11 +5,12 @@ from .models import *
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
-    list_display = [ 'name', 'lastname', 'email']
+    list_display = ['id', 'name', 'lastname', 'email']
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
     list_display = [
+        'id',
         'client', 
         'begins_at', 
         'ends_at',
@@ -40,24 +41,26 @@ class BookingAdmin(admin.ModelAdmin):
 @admin.register(RoomType)
 class RoomTypeAdmin(admin.ModelAdmin):
     list_display = [
+        'id',
         'size',
-        'species',
+        'accepted_species',
         'description',
     ]
     
 @admin.register(Room)
 class RoomAdmin(admin.ModelAdmin):
     list_display = [
+        'id',
         'name',
         'reserved',
         'is_active',
-        'price',
-        'category_id'
+        'price'
     ]
 
 @admin.register(RoomBooking)
 class RoomBookingAdmin(admin.ModelAdmin):
     list_display = [
+        'id',
         'booking_id',
         'room_brand_id',
     ]
@@ -65,22 +68,24 @@ class RoomBookingAdmin(admin.ModelAdmin):
 @admin.register(FoodType)
 class RoomTypeAdmin(admin.ModelAdmin):
     list_display = [
-        'species',
+        'id',
+        'accepted_species',
         'description',
     ]
     
 @admin.register(FoodBrand)
 class FoodBrandAdmin(admin.ModelAdmin):
     list_display = [
+        'id',
         'name',
         'is_active',
-        'price',
-        'category_id'
+        'price'
     ]
 
 @admin.register(FoodBrandBooking)
 class FoodBrandBookingAdmin(admin.ModelAdmin):
     list_display = [
+        'id',
         'booking_id',
         'food_brand_id',
     ]
