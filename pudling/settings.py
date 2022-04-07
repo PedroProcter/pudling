@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-from .config import SECRET_KEY as SK, DATABASES as DB, ALLOWED_HOSTS as AH
+from .hidden import SECRET_KEY as SK, DATABASES as DB, ALLOWED_HOSTS as AH
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
