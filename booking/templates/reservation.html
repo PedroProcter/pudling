@@ -1,0 +1,35 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Pudling Booking{% endblock %}
+
+{% block content %}
+<section id="rooms-grid" class="my-5">
+    <h3 class="px-4 py-1">Reservations</h3>
+    <hr class="mx-5">
+
+    <!--Card Container-->
+
+    <div class="autofit-grid m-3 justify-content-center">
+        {% if rooms.count == 0 %}
+        <h5>Not Available Resources</h5>
+        {% endif %}
+        {% for room in rooms %}
+        {% if room.is_active and not room.reserved %}
+
+        <!--Card-->
+
+        <div class="card custom-card text-center">
+            <div class="card-body">
+                <h4 class="card-title">{{room.name}}</h4>
+                <p class="card-text text-success">available</p>
+                <p class="card-text">RD$ {{room.price}}</p>
+                <button class="btn btn-primary">reserve</button>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <p class="mx-5 my-2"><strong>total:</strong> RD$ 99999999.99</p>
+    <button class="btn btn-success mx-5 my-2">Checkout</button>
+</section>
+{% endblock %}
