@@ -1,0 +1,64 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Pudling Booking{% endblock %}
+
+{% block content %}
+<section class="m-5 text-center">
+    <h2>Welcome to Pudling Booking</h2>
+    <p>Let you Pets enjoy of the best Pet's Hotel in RD</p>
+</section>
+
+<section id="rooms-grid" class="my-5">
+    <h3 class="px-4 py-1">Rooms</h3>
+    <hr class="mx-5">
+
+    <!--Card Container-->
+
+    <div class="autofit-grid m-3 justify-content-center">
+        {% if rooms.count == 0 %}
+        <h5>Not Data</h5>
+        {% endif %}
+        {% for room in rooms %}
+        {% if room.is_active and not room.reserved %}
+
+        <!--Card-->
+
+        <div class="card custom-card text-center">
+            <div class="card-body">
+                <h4 class="card-title">{{room.name}}</h4>
+                <p class="card-text">RD$ {{room.price}}</p>
+                <button class="btn btn-primary">reserve</button>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+<section id="food-brands-grid" class="my-5">
+    <h3 class="px-4 py-1">Food Brands</h3>
+    <hr class="mx-5">
+
+    <!--Card Container-->
+
+    <div class="autofit-grid m-3 justify-content-center">
+        {% if food_brands.count == 0 %}
+        <h5>Not Data</h5>
+        {% endif %}
+        {% for food_brand in food_brands %}
+        {% if food_brand.is_active %}
+
+        <!--Card-->
+
+        <div class="card custom-card text-center">
+            <div class="card-body">
+                <h4 class="card-title">{{food_brand.name}}</h4>
+                <p class="card-text">RD$ {{food_brand.price}}</p>
+                <button class="btn btn-primary">reserve</button>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
