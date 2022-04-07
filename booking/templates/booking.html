@@ -4,6 +4,12 @@
 
 {% block content %}
 <section class="m-5 text-center">
+    <svg style="position:absolute;top:0px;opacity:0.3;transform: rotateZ(60deg);" width="400px" viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FF0066"
+            d="M36.8,-22.3C45.7,-5.8,49.5,12.5,42.5,32.4C35.5,52.3,17.8,73.8,1.1,73.2C-15.5,72.5,-31,49.7,-34.7,31.6C-38.5,13.5,-30.6,0.2,-22.9,-15.6C-15.1,-31.4,-7.6,-49.7,3.2,-51.5C13.9,-53.4,27.9,-38.8,36.8,-22.3Z"
+            transform="translate(100 100)" />
+    </svg>
     <h2>Welcome to Pudling Booking</h2>
     <p>Let you Pets enjoy of the best Pet's Hotel in RD</p>
 </section>
@@ -16,7 +22,7 @@
 
     <div class="autofit-grid m-3 justify-content-center">
         {% if rooms.count == 0 %}
-        <h5>Not Data</h5>
+        <h5>Not Available Resources</h5>
         {% endif %}
         {% for room in rooms %}
         {% if room.is_active and not room.reserved %}
@@ -26,6 +32,7 @@
         <div class="card custom-card text-center">
             <div class="card-body">
                 <h4 class="card-title">{{room.name}}</h4>
+                <p class="card-text text-success">available</p>
                 <p class="card-text">RD$ {{room.price}}</p>
                 <button class="btn btn-primary">reserve</button>
             </div>
@@ -43,7 +50,7 @@
 
     <div class="autofit-grid m-3 justify-content-center">
         {% if food_brands.count == 0 %}
-        <h5>Not Data</h5>
+        <h5>Not Available Resources</h5>
         {% endif %}
         {% for food_brand in food_brands %}
         {% if food_brand.is_active %}
@@ -53,6 +60,7 @@
         <div class="card custom-card text-center">
             <div class="card-body">
                 <h4 class="card-title">{{food_brand.name}}</h4>
+                <p class="card-text text-success">available</p>
                 <p class="card-text">RD$ {{food_brand.price}}</p>
                 <button class="btn btn-primary">reserve</button>
             </div>
