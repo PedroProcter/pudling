@@ -1,3 +1,3 @@
 # Pudling
 
-Publing is a *web app* for a **mascot's hotel**.
+Pudling is a Booking *Web App* for a **Pet's Hotel**.
